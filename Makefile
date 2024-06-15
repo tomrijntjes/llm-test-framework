@@ -7,7 +7,7 @@ DOCKER_COMPOSE_FILE ?= docker-compose.yml
 
 .PHONY: up down clean psql
 
-all: up
+all: up setup run
 
 help: ## Display this help.
 	@sed -ne '/^##/s/## //p' $(firstword $(MAKEFILE_LIST))
@@ -30,8 +30,8 @@ setup:
 	source .venv/bin/activate && \
 	pip install -r requirements.txt
 
-run:
+run: up setup
 	source .venv/bin/activate && python main.py
 
-test:
+test: up setup
 	source .venv/bin/activate && pytest -vv
