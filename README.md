@@ -4,7 +4,8 @@ An experiment with structured testing and the LLM-as-Judge approach
 
 ## Run in interactive mode
 
-```make run
+```
+make run
 Enter the patient's name: de Vries
 Enter the question: pijnstilling
 ```
